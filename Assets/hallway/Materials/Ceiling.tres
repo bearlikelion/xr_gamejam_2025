@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://bqwimbfmw2m8j"]
+
+[ext_resource type="Texture2D" uid="uid://b6hc3qi0d85qa" path="res://Assets/Textures/OfficeCeiling001_1K-JPG_Color.jpg" id="1_r2o3b"]
+[ext_resource type="Texture2D" uid="uid://ccntuemx1wjkv" path="res://Assets/Textures/OfficeCeiling001_1K-JPG_Emission.jpg" id="2_52lua"]
+[ext_resource type="Texture2D" uid="uid://bof0wij36aff4" path="res://Assets/Textures/OfficeCeiling001_1K-JPG_Metalness.jpg" id="3_6445r"]
+[ext_resource type="Texture2D" uid="uid://djfqfdjd33stv" path="res://Assets/Textures/OfficeCeiling001_1K-JPG_NormalGL.jpg" id="4_6gy74"]
+[ext_resource type="Texture2D" uid="uid://0r1csdyp408s" path="res://Assets/Textures/OfficeCeiling001_1K-JPG_Roughness.jpg" id="5_mbmt0"]
+
+[resource]
+resource_name = "Ceiling"
+cull_mode = 2
+albedo_color = Color(0.91372263, 0.9254906, 0.937255, 1)
+albedo_texture = ExtResource("1_r2o3b")
+albedo_texture_force_srgb = true
+metallic = 1.0
+metallic_texture = ExtResource("3_6445r")
+roughness_texture = ExtResource("5_mbmt0")
+emission_texture = ExtResource("2_52lua")
+normal_enabled = true
+normal_texture = ExtResource("4_6gy74")
+uv1_scale = Vector3(4, 0.5, 1)

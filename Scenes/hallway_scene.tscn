@@ -1,0 +1,211 @@
+[gd_scene load_steps=20 format=3 uid="uid://bypcdy4nlea58"]
+
+[ext_resource type="Script" uid="uid://biqrn5tqgmyr8" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_jvl1d"]
+[ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="3_mkgi3"]
+[ext_resource type="PackedScene" uid="uid://bdwmserhqai5h" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" id="4_k8i1m"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="5_1f2ol"]
+[ext_resource type="PackedScene" uid="uid://btf05hjpw6k05" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" id="6_n0qoy"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="7_k8i1m"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_n0qoy"]
+[ext_resource type="PackedScene" uid="uid://cxvywdfnsyker" path="res://Assets/hallway/hallway.blend" id="9_6j5d2"]
+[ext_resource type="LightmapGIData" uid="uid://dy7qvxvm4q4y2" path="res://Scenes/hallway.lmbake" id="9_rh4be"]
+[ext_resource type="FontFile" uid="uid://bh52uw6dvou1i" path="res://Assets/Fonts/Coolvetica Rg.otf" id="10_1f2ol"]
+[ext_resource type="PackedScene" uid="uid://cd51q8s83f3qp" path="res://Scenes/Interactables/push_button.tscn" id="10_mkgi3"]
+[ext_resource type="AudioStream" uid="uid://m5qhug5jlc87" path="res://Assets/Audio/560697__grimmreapersounds__the-intercom-of-nothingness.mp3" id="11_rgpaa"]
+[ext_resource type="PackedScene" uid="uid://dpy1eg3i331se" path="res://addons/godot-xr-tools/objects/teleport_area.tscn" id="12_ool8r"]
+[ext_resource type="Script" uid="uid://dsoy12y7p52hx" path="res://Scripts/teleport_area.gd" id="13_k8i1m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1lwnw"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_5dfa3"]
+sky_material = SubResource("ProceduralSkyMaterial_1lwnw")
+
+[sub_resource type="Environment" id="Environment_diyul"]
+background_color = Color(0.40705615, 0.40705618, 0.40705615, 1)
+sky = SubResource("Sky_5dfa3")
+ambient_light_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+ambient_light_energy = 0.3
+tonemap_mode = 3
+glow_enabled = true
+glow_bloom = 0.25
+fog_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k8i1m"]
+size = Vector3(5, 7, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8i1m"]
+albedo_color = Color(0, 1, 0, 1)
+
+[node name="SceneBase" type="Node3D"]
+script = ExtResource("1_jvl1d")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shadow_enabled = true
+sky_mode = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_diyul")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18, -1, 0)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" instance=ExtResource("3_mkgi3")]
+
+[node name="LeftHandController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="MovementDirect" parent="XROrigin3D/LeftHandController" instance=ExtResource("5_1f2ol")]
+
+[node name="LeftPhysicsHand" parent="XROrigin3D/LeftHandController" instance=ExtResource("4_k8i1m")]
+
+[node name="RightHandController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+pose = &"aim"
+
+[node name="MovementTurn" parent="XROrigin3D/RightHandController" instance=ExtResource("7_k8i1m")]
+
+[node name="RightPhysicsHand" parent="XROrigin3D/RightHandController" instance=ExtResource("6_n0qoy")]
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("8_n0qoy")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_rgpaa")
+volume_db = -10.0
+autoplay = true
+
+[node name="Hallway1" type="Node" parent="."]
+
+[node name="LightmapGI" type="LightmapGI" parent="Hallway1"]
+interior = true
+light_data = ExtResource("9_rh4be")
+
+[node name="hallway" parent="Hallway1" instance=ExtResource("9_6j5d2")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway1/hallway/Light" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_energy = 0.8
+light_bake_mode = 1
+omni_range = 7.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway1/hallway/Light_001" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_energy = 0.8
+light_bake_mode = 1
+omni_range = 7.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway1/hallway/Light_002" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_energy = 0.8
+light_bake_mode = 1
+omni_range = 7.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway1/hallway/Light_003" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_energy = 0.8
+light_bake_mode = 1
+omni_range = 7.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway1/hallway/Light_004" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_energy = 0.8
+light_bake_mode = 1
+omni_range = 7.0
+
+[node name="Message" type="Label3D" parent="Hallway1"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.9, -0.6, 0)
+visibility_range_end = 5.0
+text = "Find her."
+font = ExtResource("10_1f2ol")
+outline_size = 0
+
+[node name="PushButton" parent="Hallway1" instance=ExtResource("10_mkgi3")]
+transform = Transform3D(3.774895e-07, 5, 0, -5, 3.774895e-07, 0, 0, 0, 5, -20, -1, 0)
+
+[node name="TeleportArea" parent="Hallway1" node_paths=PackedStringArray("target") instance=ExtResource("12_ool8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -3, 0)
+monitoring = false
+script = ExtResource("13_k8i1m")
+target = NodePath("../../Hallway2/SpawnPoint")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hallway1/TeleportArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_k8i1m")
+
+[node name="Hallway2" type="Node" parent="."]
+
+[node name="LightmapGI" type="LightmapGI" parent="Hallway2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24)
+interior = true
+light_data = ExtResource("9_rh4be")
+
+[node name="SpawnPoint" type="Node3D" parent="Hallway2"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18, -1, 24)
+
+[node name="hallway" parent="Hallway2" instance=ExtResource("9_6j5d2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway2/hallway/Light" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_energy = 0.8
+light_bake_mode = 1
+omni_range = 7.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway2/hallway/Light_001" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_energy = 0.8
+light_bake_mode = 1
+omni_range = 7.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway2/hallway/Light_002" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_energy = 0.8
+light_bake_mode = 1
+omni_range = 7.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway2/hallway/Light_003" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_energy = 0.8
+light_bake_mode = 1
+omni_range = 7.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway2/hallway/Light_004" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_energy = 0.8
+light_bake_mode = 1
+omni_range = 7.0
+
+[node name="Message" type="Label3D" parent="Hallway2"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.9, -0.6, 24)
+visibility_range_end = 5.0
+text = "Save him."
+font = ExtResource("10_1f2ol")
+outline_size = 0
+
+[node name="PushButton" parent="Hallway2" instance=ExtResource("10_mkgi3")]
+transform = Transform3D(3.774895e-07, 5, 0, -5, 3.774895e-07, 0, 0, 0, 5, -20, -1, 24)
+
+[node name="MeshInstance3D" parent="Hallway2/PushButton/Button" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_k8i1m")
+
+[node name="TeleportArea" parent="Hallway2" instance=ExtResource("12_ool8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -3, 24)
+monitoring = false
+script = ExtResource("13_k8i1m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hallway2/TeleportArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_k8i1m")
+
+[connection signal="button_pressed" from="Hallway1/PushButton/InteractableAreaButton" to="Hallway1/TeleportArea" method="_on_interactable_area_button_button_pressed"]
+[connection signal="button_pressed" from="Hallway2/PushButton/InteractableAreaButton" to="Hallway2/TeleportArea" method="_on_interactable_area_button_button_pressed"]
+
+[editable path="Hallway1/hallway"]
+[editable path="Hallway1/PushButton"]
+[editable path="Hallway2/hallway"]
+[editable path="Hallway2/PushButton"]
