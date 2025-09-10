@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://c22j1kd60fs4o"]
+
+[ext_resource type="Script" uid="uid://doefs8n6hfgrk" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_wpkd2"]
+[ext_resource type="ArrayMesh" uid="uid://bs7gf234kax21" path="res://Assets/Interactables/Hammer/hammer_Cylinder.res" id="2_dw012"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_hhiif"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_edgbu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v048a"]
+size = Vector3(1, 1.2, 0.8)
+
+[node name="Hammer" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_wpkd2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.099999905, -8.940697e-08)
+shape = SubResource("BoxShape3D_v048a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_dw012")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("3_hhiif")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.3, 0.2)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_edgbu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.3, -0.2)

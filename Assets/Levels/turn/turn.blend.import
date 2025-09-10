@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cxvywdfnsyker"
-path="res://.godot/imported/hallway.blend-d8e0fa29887c538b75b52765f4875826.scn"
+uid="uid://vwuu5jkj41hx"
+path="res://.godot/imported/turn.blend-a52e9ffcf369aa730b156653f6b2c4e1.scn"
 
 [deps]
 
-source_file="res://Assets/hallway/hallway.blend"
-dest_files=["res://.godot/imported/hallway.blend-d8e0fa29887c538b75b52765f4875826.scn"]
+source_file="res://Assets/Levels/turn/turn.blend"
+dest_files=["res://.godot/imported/turn.blend-a52e9ffcf369aa730b156653f6b2c4e1.scn"]
 
 [params]
 
@@ -37,35 +37,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"materials": {
-"Ceiling": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/hallway/Materials/Ceiling.tres",
-"use_external/path": "uid://bqwimbfmw2m8j"
-},
-"Floor": {
-"use_external/enabled": false,
-"use_external/fallback_path": "res://Assets/hallway/Materials/Floor.tres",
-"use_external/path": "uid://csk6x1anhbyfb"
-},
-"Floor_Outline": {
-"use_external/enabled": false,
-"use_external/fallback_path": "res://Assets/hallway/Materials/Floor_Outline.tres",
-"use_external/path": "uid://bp1fxrbtxxp2o"
-},
-"Light": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/hallway/Materials/Light.tres",
-"use_external/path": "uid://c5epbbc5gcdva"
-},
-"Wall": {
-"use_external/enabled": false,
-"use_external/fallback_path": "res://Assets/hallway/Materials/Wall.tres",
-"use_external/path": "uid://c2itfr8d75kyc"
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

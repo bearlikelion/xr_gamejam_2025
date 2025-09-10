@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwl3q8cta4y6v"]
+
+[ext_resource type="PackedScene" uid="uid://ctjkacdwh1i5c" path="res://Assets/Interactables/Hammer/hammer.blend" id="1_kxv3n"]
+
+[node name="hammer" instance=ExtResource("1_kxv3n")]

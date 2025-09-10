@@ -3,8 +3,8 @@
 importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://cgc12dkgrdrsm"
-path.bptc="res://.godot/imported/hallway.exr-3fe7c6e504afc92becd999f21923b0b7.bptc.ctexarray"
-path.astc="res://.godot/imported/hallway.exr-3fe7c6e504afc92becd999f21923b0b7.astc.ctexarray"
+path.bptc="res://.godot/imported/hallway.exr-15da0273c963c469fcb98ecdb1c0eb35.bptc.ctexarray"
+path.astc="res://.godot/imported/hallway.exr-15da0273c963c469fcb98ecdb1c0eb35.astc.ctexarray"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Scenes/hallway.exr"
-dest_files=["res://.godot/imported/hallway.exr-3fe7c6e504afc92becd999f21923b0b7.bptc.ctexarray", "res://.godot/imported/hallway.exr-3fe7c6e504afc92becd999f21923b0b7.astc.ctexarray"]
+source_file="res://Scenes/Levels/hallway/hallway.exr"
+dest_files=["res://.godot/imported/hallway.exr-15da0273c963c469fcb98ecdb1c0eb35.bptc.ctexarray", "res://.godot/imported/hallway.exr-15da0273c963c469fcb98ecdb1c0eb35.astc.ctexarray"]
 
 [params]
 

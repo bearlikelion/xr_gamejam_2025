@@ -119,7 +119,7 @@ toplevel_paths = PackedStringArray("/user/hand/left", "/user/hand/right")
 
 [sub_resource type="OpenXRAction" id="OpenXRAction_c4j1d"]
 resource_name = "grip_pose"
-localized_name = "Grip pose"
+localized_name = "Grip posesorry for ad I tried to run preroll"
 action_type = 3
 toplevel_paths = PackedStringArray("/user/hand/left", "/user/hand/right")
 
