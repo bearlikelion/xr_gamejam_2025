@@ -58,6 +58,11 @@ _subresources={
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Assets/Levels/dark/Materials/Trim.tres",
 "use_external/path": "uid://jj0eaowkurgf"
+},
+"redlight": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Levels/dark/Materials/redlight.tres",
+"use_external/path": "uid://db8hhdqvtfxww"
 }
 }
 }

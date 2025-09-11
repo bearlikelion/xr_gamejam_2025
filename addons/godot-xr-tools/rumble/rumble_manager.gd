@@ -101,13 +101,14 @@ func _process(delta: float) -> void:
 
 		# Make that tracker rumble
 		if magnitude > 0:
-			XRServer.primary_interface.trigger_haptic_pulse(
-				HAPTIC_ACTION,
-				tracker_name, # if the tracker name isn't valid, it will error but continue
-				0,
-				magnitude,
-				0.1,
-				0)
+			if XRServer.primary_interface:
+				XRServer.primary_interface.trigger_haptic_pulse(
+					HAPTIC_ACTION,
+					tracker_name, # if the tracker name isn't valid, it will error but continue
+					0,
+					magnitude,
+					0.1,
+					0)
 
 
 # Add an event

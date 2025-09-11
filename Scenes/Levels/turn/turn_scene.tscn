@@ -274,7 +274,7 @@ sky_mode = 2
 environment = SubResource("Environment_diyul")
 
 [node name="XROrigin3D" parent="." instance=ExtResource("2_q1hvk")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19, -1, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18, -1, 0)
 
 [node name="AnimationTree" parent="XROrigin3D/LeftHandController/LeftPhysicsHand" index="1"]
 libraries = {
@@ -412,7 +412,7 @@ transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 2
 surface_material_override/0 = SubResource("StandardMaterial3D_5bvgk")
 
 [node name="TeleportToScene" parent="TurnRight" instance=ExtResource("83_5vy7s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -3, 24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -3, 39.8)
 monitoring = false
 script = ExtResource("87_5vy7s")
 scene = "uid://c2ygu3myycw37"

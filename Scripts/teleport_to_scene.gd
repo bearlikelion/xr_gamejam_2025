@@ -7,6 +7,7 @@ extends Area3D
 @export_file('*.tscn') var scene : String
 
 @onready var staging: XRToolsStaging = get_tree().get_first_node_in_group("Staging")
+@onready var xrplayer: XRPlayer = get_tree().get_first_node_in_group("XRPlayer")
 
 # Add support for is_xr_class on XRTools classes
 func is_xr_class(name : String) -> bool:
@@ -27,7 +28,9 @@ func _on_body_entered(body : Node3D) -> void:
 
 	# Teleport to new scene
 	staging.load_scene(scene)
+	xrplayer.become_him()
 
 
 func _on_interactable_area_button_button_pressed(_button: Variant) -> void:
+	print("Enable teleport zone")
 	monitoring = true
