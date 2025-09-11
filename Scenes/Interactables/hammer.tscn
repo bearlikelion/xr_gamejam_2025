@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c22j1kd60fs4o"]
+[gd_scene load_steps=8 format=3 uid="uid://c22j1kd60fs4o"]
 
 [ext_resource type="Script" uid="uid://biw6wq2nbxfxx" path="res://Scenes/Interactables/hammer.gd" id="1_edgbu"]
 [ext_resource type="ArrayMesh" uid="uid://c1uv6getwdsb4" path="res://Assets/Interactables/Hammer/hammer_Cylinder.res" id="2_dw012"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_hhiif"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_edgbu"]
 [ext_resource type="FontFile" uid="uid://bh52uw6dvou1i" path="res://Assets/Fonts/Coolvetica Rg.otf" id="5_edgbu"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="6_la1ds"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v048a"]
 size = Vector3(0.25, 1, 1)
@@ -34,12 +35,15 @@ visible = true
 
 [node name="Message" type="Label3D" parent="."]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5, 0)
+visible = false
 visibility_range_end = 5.0
 billboard = 1
 text = "Press A to 
 give him the hammer"
 font = ExtResource("5_edgbu")
 outline_size = 0
+
+[node name="HighlightRing" parent="." instance=ExtResource("6_la1ds")]
 
 [connection signal="grabbed" from="." to="." method="_on_grabbed"]
 

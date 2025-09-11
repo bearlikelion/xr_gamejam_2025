@@ -48,10 +48,11 @@ func _on_right_hand_controller_button_pressed(button: String) -> void:
 func become_him() -> void:
 	print("Become Him")
 	current_person = Person.HIM
-	player_body.teleport(him.global_transform)
+	if him:
+		player_body.teleport(him.global_transform)
+		remote_rotation.remote_path = him.get_path()
+		remote_position.remote_path = him.get_path()
 	his_hands()
-	remote_rotation.remote_path = him.get_path()
-	remote_position.remote_path = him.get_path()
 	him_sound.play()
 	became_him.emit()
 
@@ -59,10 +60,11 @@ func become_him() -> void:
 func become_her() -> void:
 	print("Become Her")
 	current_person = Person.HER
-	player_body.teleport(her.global_transform)
+	if her:
+		player_body.teleport(her.global_transform)
+		remote_rotation.remote_path = her.get_path()
+		remote_position.remote_path = her.get_path()
 	her_hands()
-	remote_rotation.remote_path = her.get_path()
-	remote_position.remote_path = her.get_path()
 	her_sound.play()
 	became_her.emit()
 

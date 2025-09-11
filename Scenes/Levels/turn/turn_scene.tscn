@@ -274,7 +274,7 @@ sky_mode = 2
 environment = SubResource("Environment_diyul")
 
 [node name="XROrigin3D" parent="." instance=ExtResource("2_q1hvk")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -2, -63)
 
 [node name="AnimationTree" parent="XROrigin3D/LeftHandController/LeftPhysicsHand" index="1"]
 libraries = {
