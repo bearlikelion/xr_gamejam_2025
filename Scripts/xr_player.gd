@@ -8,6 +8,8 @@ const HER_NAILS = preload("res://Assets/Hands/her_nails.tres")
 const HIS_HANDS = preload("res://Assets/Hands/his_hands.tres")
 const HIS_NAILS = preload("res://Assets/Hands/his_nails.tres")
 
+signal became_him()
+signal became_her()
 
 enum Person {HIM, HER}
 
@@ -26,8 +28,9 @@ var current_person = Person.HIM
 @onready var remote_position: RemoteTransform3D = $RemotePosition
 
 func _ready() -> void:
-	remote_rotation.remote_path = him.get_path()
-	remote_position.remote_path = him.get_path()
+	if him:
+		remote_rotation.remote_path = him.get_path()
+		remote_position.remote_path = him.get_path()
 
 
 func _on_left_hand_controller_button_pressed(button: String) -> void:
@@ -50,6 +53,7 @@ func become_him() -> void:
 	remote_rotation.remote_path = him.get_path()
 	remote_position.remote_path = him.get_path()
 	him_sound.play()
+	became_him.emit()
 
 
 func become_her() -> void:
@@ -60,6 +64,7 @@ func become_her() -> void:
 	remote_rotation.remote_path = her.get_path()
 	remote_position.remote_path = her.get_path()
 	her_sound.play()
+	became_her.emit()
 
 
 func her_hands() -> void:

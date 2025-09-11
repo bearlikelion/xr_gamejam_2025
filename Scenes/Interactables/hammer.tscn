@@ -1,29 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://c22j1kd60fs4o"]
+[gd_scene load_steps=7 format=3 uid="uid://c22j1kd60fs4o"]
 
-[ext_resource type="Script" uid="uid://doefs8n6hfgrk" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_wpkd2"]
-[ext_resource type="ArrayMesh" uid="uid://bs7gf234kax21" path="res://Assets/Interactables/Hammer/hammer_Cylinder.res" id="2_dw012"]
+[ext_resource type="Script" uid="uid://biw6wq2nbxfxx" path="res://Scenes/Interactables/hammer.gd" id="1_edgbu"]
+[ext_resource type="ArrayMesh" uid="uid://c1uv6getwdsb4" path="res://Assets/Interactables/Hammer/hammer_Cylinder.res" id="2_dw012"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_hhiif"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_edgbu"]
+[ext_resource type="FontFile" uid="uid://bh52uw6dvou1i" path="res://Assets/Fonts/Coolvetica Rg.otf" id="5_edgbu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v048a"]
-size = Vector3(1, 1.2, 0.8)
+size = Vector3(0.4, 0.4, 0.2)
 
 [node name="Hammer" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
-script = ExtResource("1_wpkd2")
+script = ExtResource("1_edgbu")
+press_to_hold = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.099999905, -8.940697e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4901161e-08, -8.940697e-08, -8.940697e-08)
 shape = SubResource("BoxShape3D_v048a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 mesh = ExtResource("2_dw012")
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("3_hhiif")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.3, 0.2)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.1, -1.4901161e-08, 0.1)
+visible = true
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("4_edgbu")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.3, -0.2)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.1, -7.450581e-09, -0.1)
+visible = true
+
+[node name="Message" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, 0)
+visible = false
+visibility_range_end = 5.0
+billboard = 1
+text = "Press A to 
+give him the hammer"
+font = ExtResource("5_edgbu")
+outline_size = 0
+
+[connection signal="grabbed" from="." to="." method="_on_grabbed"]
