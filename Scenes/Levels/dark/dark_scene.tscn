@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://c2ygu3myycw37"]
+[gd_scene load_steps=97 format=3 uid="uid://c2ygu3myycw37"]
 
 [ext_resource type="Script" uid="uid://biqrn5tqgmyr8" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_tdfyl"]
 [ext_resource type="AudioStream" uid="uid://m5qhug5jlc87" path="res://Assets/Audio/560697__grimmreapersounds__the-intercom-of-nothingness.mp3" id="2_6sxdc"]
@@ -73,13 +73,7 @@
 [ext_resource type="Animation" uid="uid://d3h36bkauutoq" path="res://addons/godot-xr-tools/hands/animations/right/Straight.res" id="71_2sgyi"]
 [ext_resource type="Animation" uid="uid://bq7cjxdn28jcv" path="res://addons/godot-xr-tools/hands/animations/right/Surfer.res" id="72_evkc4"]
 [ext_resource type="Animation" uid="uid://d2ukhr3n2r1u8" path="res://addons/godot-xr-tools/hands/animations/right/Thumb.res" id="73_hwgsh"]
-[ext_resource type="LightmapGIData" uid="uid://dy7qvxvm4q4y2" path="res://Scenes/Levels/hallway/hallway.lmbake" id="74_6ntim"]
-[ext_resource type="PackedScene" uid="uid://cxvywdfnsyker" path="res://Assets/Levels/hallway/hallway.blend" id="75_jb270"]
-[ext_resource type="FontFile" uid="uid://bh52uw6dvou1i" path="res://Assets/Fonts/Coolvetica Rg.otf" id="76_osngp"]
-[ext_resource type="PackedScene" uid="uid://cd51q8s83f3qp" path="res://Scenes/Interactables/push_button.tscn" id="77_oko0e"]
-[ext_resource type="PackedScene" uid="uid://dpy1eg3i331se" path="res://addons/godot-xr-tools/objects/teleport_area.tscn" id="78_abowd"]
-[ext_resource type="Script" uid="uid://dsoy12y7p52hx" path="res://Scripts/teleport_area.gd" id="79_g32eh"]
-[ext_resource type="Script" uid="uid://cex2j1j07tlh4" path="res://Scripts/teleport_to_scene.gd" id="80_e6kt7"]
+[ext_resource type="PackedScene" uid="uid://3a8oy4bjwhty" path="res://Assets/Levels/dark/dark.blend" id="76_vxm5c"]
 [ext_resource type="AudioStream" uid="uid://dvyffhfujxm8x" path="res://Assets/Audio/him.ogg" id="81_qtmfb"]
 [ext_resource type="AudioStream" uid="uid://dmnuwxt6se7f6" path="res://Assets/Audio/her.ogg" id="82_18fwk"]
 
@@ -93,10 +87,10 @@ sky_material = SubResource("ProceduralSkyMaterial_1lwnw")
 [sub_resource type="Environment" id="Environment_diyul"]
 background_color = Color(0.40705615, 0.40705618, 0.40705615, 1)
 sky = SubResource("Sky_5dfa3")
-ambient_light_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
 ambient_light_energy = 0.3
 tonemap_mode = 3
 glow_enabled = true
+glow_intensity = 0.25
 glow_bloom = 0.25
 fog_enabled = true
 
@@ -139,34 +133,34 @@ _data = {
 &"Thumb": ExtResource("38_kdp75")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pebh8"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vxm5c"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l1vhs"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_21o72"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_4cibk"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_qn2ds"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_L", "Armature/Skeleton3D:Little_Intermediate_L", "Armature/Skeleton3D:Little_Metacarpal_L", "Armature/Skeleton3D:Little_Proximal_L", "Armature/Skeleton3D:Middle_Distal_L", "Armature/Skeleton3D:Middle_Intermediate_L", "Armature/Skeleton3D:Middle_Metacarpal_L", "Armature/Skeleton3D:Middle_Proximal_L", "Armature/Skeleton3D:Ring_Distal_L", "Armature/Skeleton3D:Ring_Intermediate_L", "Armature/Skeleton3D:Ring_Metacarpal_L", "Armature/Skeleton3D:Ring_Proximal_L", "Armature/Skeleton3D:Thumb_Distal_L", "Armature/Skeleton3D:Thumb_Metacarpal_L", "Armature/Skeleton3D:Thumb_Proximal_L", "Armature/Skeleton:Little_Distal_L", "Armature/Skeleton:Little_Intermediate_L", "Armature/Skeleton:Little_Proximal_L", "Armature/Skeleton:Middle_Distal_L", "Armature/Skeleton:Middle_Intermediate_L", "Armature/Skeleton:Middle_Proximal_L", "Armature/Skeleton:Ring_Distal_L", "Armature/Skeleton:Ring_Intermediate_L", "Armature/Skeleton:Ring_Proximal_L", "Armature/Skeleton:Thumb_Distal_L", "Armature/Skeleton:Thumb_Proximal_L"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3errb"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q0cxb"]
 animation = &"Grip 5"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ec1nc"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_f8cph"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_L", "Armature/Skeleton3D:Index_Intermediate_L", "Armature/Skeleton3D:Index_Metacarpal_L", "Armature/Skeleton3D:Index_Proximal_L", "Armature/Skeleton:Index_Distal_L", "Armature/Skeleton:Index_Intermediate_L", "Armature/Skeleton:Index_Proximal_L"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qowkj"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_38bok"]
 graph_offset = Vector2(-536, 11)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_pebh8")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_vxm5c")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_l1vhs")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_21o72")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_4cibk")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_qn2ds")
 nodes/Grip/position = Vector2(0, 20)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_3errb")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_q0cxb")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_ec1nc")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_f8cph")
 nodes/Trigger/position = Vector2(-360, 20)
 node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
 
@@ -209,45 +203,121 @@ _data = {
 &"Thumb": ExtResource("73_hwgsh")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r4acn"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sdamo"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uqjll"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2yis8"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_41amm"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_qmac3"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_R", "Armature/Skeleton3D:Little_Intermediate_R", "Armature/Skeleton3D:Little_Metacarpal_R", "Armature/Skeleton3D:Little_Proximal_R", "Armature/Skeleton3D:Middle_Distal_R", "Armature/Skeleton3D:Middle_Intermediate_R", "Armature/Skeleton3D:Middle_Metacarpal_R", "Armature/Skeleton3D:Middle_Proximal_R", "Armature/Skeleton3D:Ring_Distal_R", "Armature/Skeleton3D:Ring_Intermediate_R", "Armature/Skeleton3D:Ring_Metacarpal_R", "Armature/Skeleton3D:Ring_Proximal_R", "Armature/Skeleton3D:Thumb_Distal_R", "Armature/Skeleton3D:Thumb_Metacarpal_R", "Armature/Skeleton3D:Thumb_Proximal_R", "Armature/Skeleton:Little_Distal_R", "Armature/Skeleton:Little_Intermediate_R", "Armature/Skeleton:Little_Proximal_R", "Armature/Skeleton:Middle_Distal_R", "Armature/Skeleton:Middle_Intermediate_R", "Armature/Skeleton:Middle_Proximal_R", "Armature/Skeleton:Ring_Distal_R", "Armature/Skeleton:Ring_Intermediate_R", "Armature/Skeleton:Ring_Proximal_R", "Armature/Skeleton:Thumb_Distal_R", "Armature/Skeleton:Thumb_Proximal_R"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1fph3"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u2lfl"]
 animation = &"Grip 5"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ams2i"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_57o6w"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_R", "Armature/Skeleton3D:Index_Intermediate_R", "Armature/Skeleton3D:Index_Metacarpal_R", "Armature/Skeleton3D:Index_Proximal_R", "Armature/Skeleton:Index_Distal_R", "Armature/Skeleton:Index_Intermediate_R", "Armature/Skeleton:Index_Proximal_R"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_iovn2"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dxfx2"]
 graph_offset = Vector2(-552.664, 107.301)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_r4acn")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_sdamo")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_uqjll")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_2yis8")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_41amm")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_qmac3")
 nodes/Grip/position = Vector2(0, 40)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_1fph3")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_u2lfl")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_ams2i")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_57o6w")
 nodes/Trigger/position = Vector2(-360, 40)
 node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_k8i1m"]
-size = Vector3(5, 7, 5)
+[sub_resource type="Animation" id="Animation_vxm5c"]
+resource_name = "open_elevator"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ElevatorDoor :position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(15, 3, 0), Vector3(15, 3, 1.9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ElevatorDoor _001:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(15, 3, 0), Vector3(15, 3, -1.9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../OmniLight3D2:omni_range")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.0, 15.0]
+}
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8i1m"]
-albedo_color = Color(0, 1, 0, 1)
+[sub_resource type="Animation" id="Animation_21o72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ElevatorDoor :position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(15, 3, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ElevatorDoor _001:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(15, 3, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../OmniLight3D2:omni_range")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_n0qoy"]
-size = Vector3(5, 7, 5)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qn2ds"]
+_data = {
+&"RESET": SubResource("Animation_21o72"),
+&"open_elevator": SubResource("Animation_vxm5c")
+}
 
 [node name="HallwayScene" type="Node3D"]
 script = ExtResource("1_tdfyl")
@@ -266,143 +336,19 @@ volume_db = -10.0
 autoplay = true
 
 [node name="XROrigin3D" parent="." instance=ExtResource("3_jiknb")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18, -1, 0)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -18, 2, 0)
 
 [node name="AnimationTree" parent="XROrigin3D/LeftHandController/LeftPhysicsHand" index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_kw48d")
 }
-tree_root = SubResource("AnimationNodeBlendTree_qowkj")
+tree_root = SubResource("AnimationNodeBlendTree_38bok")
 
 [node name="AnimationTree" parent="XROrigin3D/RightHandController/RightPhysicsHand" index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_reqae")
 }
-tree_root = SubResource("AnimationNodeBlendTree_iovn2")
-
-[node name="Hallway1" type="Node" parent="."]
-
-[node name="LightmapGI" type="LightmapGI" parent="Hallway1"]
-interior = true
-light_data = ExtResource("74_6ntim")
-
-[node name="hallway" parent="Hallway1" instance=ExtResource("75_jb270")]
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Hallway1/hallway/Light" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-light_energy = 0.8
-light_bake_mode = 1
-omni_range = 7.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Hallway1/hallway/Light_001" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-light_energy = 0.8
-light_bake_mode = 1
-omni_range = 7.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Hallway1/hallway/Light_002" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-light_energy = 0.8
-light_bake_mode = 1
-omni_range = 7.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Hallway1/hallway/Light_003" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-light_energy = 0.8
-light_bake_mode = 1
-omni_range = 7.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Hallway1/hallway/Light_004" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-light_energy = 0.8
-light_bake_mode = 1
-omni_range = 7.0
-
-[node name="Message" type="Label3D" parent="Hallway1"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.9, -0.6, 0)
-visibility_range_end = 5.0
-text = "Find her."
-font = ExtResource("76_osngp")
-outline_size = 0
-
-[node name="PushButton" parent="Hallway1" instance=ExtResource("77_oko0e")]
-transform = Transform3D(3.774895e-07, 5, 0, -5, 3.774895e-07, 0, 0, 0, 5, -20, -1, 0)
-
-[node name="TeleportArea" parent="Hallway1" node_paths=PackedStringArray("target") instance=ExtResource("78_abowd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -3, 0)
-monitoring = false
-script = ExtResource("79_g32eh")
-target = NodePath("../../Hallway2/SpawnPoint")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hallway1/TeleportArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-shape = SubResource("BoxShape3D_k8i1m")
-
-[node name="Hallway2" type="Node" parent="."]
-
-[node name="LightmapGI" type="LightmapGI" parent="Hallway2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24)
-interior = true
-light_data = ExtResource("74_6ntim")
-
-[node name="SpawnPoint" type="Node3D" parent="Hallway2"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18, -1, 24)
-
-[node name="hallway" parent="Hallway2" instance=ExtResource("75_jb270")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Hallway2/hallway/Light" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-light_energy = 0.8
-light_bake_mode = 1
-omni_range = 7.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Hallway2/hallway/Light_001" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-light_energy = 0.8
-light_bake_mode = 1
-omni_range = 7.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Hallway2/hallway/Light_002" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-light_energy = 0.8
-light_bake_mode = 1
-omni_range = 7.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Hallway2/hallway/Light_003" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-light_energy = 0.8
-light_bake_mode = 1
-omni_range = 7.0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Hallway2/hallway/Light_004" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-light_energy = 0.8
-light_bake_mode = 1
-omni_range = 7.0
-
-[node name="Message" type="Label3D" parent="Hallway2"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.9, -0.6, 24)
-visibility_range_end = 5.0
-text = "Save him."
-font = ExtResource("76_osngp")
-outline_size = 0
-
-[node name="PushButton2" parent="Hallway2" instance=ExtResource("77_oko0e")]
-transform = Transform3D(3.774895e-07, 5, 0, -5, 3.774895e-07, 0, 0, 0, 5, -20, -1, 24)
-
-[node name="MeshInstance3D" parent="Hallway2/PushButton2/Button" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_k8i1m")
-
-[node name="TeleportToScene" parent="Hallway2" instance=ExtResource("78_abowd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -3, 24)
-monitoring = false
-script = ExtResource("80_e6kt7")
-scene = "uid://cvpattwncoc17"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hallway2/TeleportToScene"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-shape = SubResource("BoxShape3D_n0qoy")
+tree_root = SubResource("AnimationNodeBlendTree_dxfx2")
 
 [node name="HimSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("81_qtmfb")
@@ -413,15 +359,39 @@ autoplay = true
 stream = ExtResource("82_18fwk")
 volume_db = -10.0
 
-[connection signal="button_pressed" from="Hallway1/PushButton/InteractableAreaButton" to="Hallway1/TeleportArea" method="_on_interactable_area_button_button_pressed"]
-[connection signal="button_pressed" from="Hallway2/PushButton2/InteractableAreaButton" to="Hallway2/TeleportToScene" method="_on_interactable_area_button_button_pressed"]
+[node name="dark" parent="." instance=ExtResource("76_vxm5c")]
+
+[node name="TrapDoor " parent="dark" index="5"]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dark"]
+libraries = {
+&"": SubResource("AnimationLibrary_qn2ds")
+}
+
+[node name="NegativeLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 5, 12)
+light_energy = 16.0
+light_negative = true
+omni_range = 10.0
+omni_attenuation = 1.16
+
+[node name="NegativeLight2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 5, -12)
+light_energy = 16.0
+light_negative = true
+omni_range = 10.0
+omni_attenuation = 1.16
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+omni_range = 3.0
 
 [editable path="XROrigin3D"]
 [editable path="XROrigin3D/LeftHandController/LeftPhysicsHand"]
 [editable path="XROrigin3D/LeftHandController/LeftPhysicsHand/Hand_Nails_low_L"]
 [editable path="XROrigin3D/RightHandController/RightPhysicsHand"]
 [editable path="XROrigin3D/RightHandController/RightPhysicsHand/Hand_Nails_low_R"]
-[editable path="Hallway1/hallway"]
-[editable path="Hallway1/PushButton"]
-[editable path="Hallway2/hallway"]
-[editable path="Hallway2/PushButton2"]
+[editable path="dark"]

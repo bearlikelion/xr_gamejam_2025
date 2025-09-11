@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bn60dl6uinipx"]
+
+[resource]
+resource_name = "ElevatorDoor"
+cull_mode = 2
+albedo_color = Color(0.62352735, 0.60392183, 0.71764714, 1)
