@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://p6o71kj5y4y1"]
+
+[ext_resource type="Script" uid="uid://biw6wq2nbxfxx" path="res://Scenes/Interactables/hammer.gd" id="1_c5vn2"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_s61uw"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_r1o61"]
+[ext_resource type="FontFile" uid="uid://bh52uw6dvou1i" path="res://Assets/Fonts/Coolvetica Rg.otf" id="5_qlvke"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="6_0rcw5"]
+[ext_resource type="PackedScene" uid="uid://b24jqqphevjrn" path="res://Assets/Levels/dark/keycard.blend" id="7_807bv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v048a"]
+size = Vector3(0.25, 1, 1)
+
+[node name="Hammer" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("1_c5vn2")
+press_to_hold = false
+second_hand_grab = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4901161e-08, -8.940697e-08, -8.940697e-08)
+shape = SubResource("BoxShape3D_v048a")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("3_s61uw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.1, -1.4901161e-08, 0.1)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_r1o61")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.1, -7.450581e-09, -0.1)
+
+[node name="Message" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5, 0)
+visible = false
+visibility_range_end = 5.0
+billboard = 1
+text = "Press A to 
+give him the hammer"
+font = ExtResource("5_qlvke")
+outline_size = 0
+
+[node name="HighlightRing" parent="." instance=ExtResource("6_0rcw5")]
+
+[node name="keycard" parent="." instance=ExtResource("7_807bv")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[connection signal="grabbed" from="." to="." method="_on_grabbed"]
+
+[editable path="GrabPointHandLeft"]

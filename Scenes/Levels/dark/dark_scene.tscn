@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://c2ygu3myycw37"]
+[gd_scene load_steps=100 format=3 uid="uid://c2ygu3myycw37"]
 
 [ext_resource type="Script" uid="uid://biqrn5tqgmyr8" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_tdfyl"]
 [ext_resource type="AudioStream" uid="uid://m5qhug5jlc87" path="res://Assets/Audio/560697__grimmreapersounds__the-intercom-of-nothingness.mp3" id="2_6sxdc"]
@@ -74,6 +74,9 @@
 [ext_resource type="Animation" uid="uid://bq7cjxdn28jcv" path="res://addons/godot-xr-tools/hands/animations/right/Surfer.res" id="72_evkc4"]
 [ext_resource type="Animation" uid="uid://d2ukhr3n2r1u8" path="res://addons/godot-xr-tools/hands/animations/right/Thumb.res" id="73_hwgsh"]
 [ext_resource type="PackedScene" uid="uid://3a8oy4bjwhty" path="res://Assets/Levels/dark/dark.blend" id="76_vxm5c"]
+[ext_resource type="PackedScene" uid="uid://ltdghl30p0r4" path="res://Assets/Levels/dark/dark_2.blend" id="77_21o72"]
+[ext_resource type="FontFile" uid="uid://do7qfursjh1vo" path="res://Assets/Fonts/HelpMe.ttf" id="78_qn2ds"]
+[ext_resource type="PackedScene" uid="uid://p6o71kj5y4y1" path="res://Scenes/Interactables/keycard.tscn" id="79_q0cxb"]
 [ext_resource type="AudioStream" uid="uid://dvyffhfujxm8x" path="res://Assets/Audio/him.ogg" id="81_qtmfb"]
 [ext_resource type="AudioStream" uid="uid://dmnuwxt6se7f6" path="res://Assets/Audio/her.ogg" id="82_18fwk"]
 
@@ -359,55 +362,66 @@ autoplay = true
 stream = ExtResource("82_18fwk")
 volume_db = -10.0
 
-[node name="dark" parent="." instance=ExtResource("76_vxm5c")]
+[node name="Dark1" type="Node" parent="."]
 
-[node name="SlideReader" parent="dark" index="13"]
+[node name="dark" parent="Dark1" instance=ExtResource("76_vxm5c")]
+
+[node name="SlideReader" parent="Dark1/dark" index="13"]
 visible = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="dark"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dark1/dark"]
 libraries = {
 &"": SubResource("AnimationLibrary_qn2ds")
 }
 
-[node name="NegativeLight" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5, 12)
+[node name="NegativeLight" type="OmniLight3D" parent="Dark1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 5, 12)
 light_energy = 16.0
 light_negative = true
 light_bake_mode = 1
 omni_range = 10.0
 omni_attenuation = 0.6
 
-[node name="NegativeLight3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 5, 12)
-light_energy = 16.0
-light_negative = true
-light_bake_mode = 1
-omni_range = 10.0
-
-[node name="NegativeLight2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5, -12)
+[node name="NegativeLight2" type="OmniLight3D" parent="Dark1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 5, -12)
 light_energy = 16.0
 light_negative = true
 light_bake_mode = 1
 omni_range = 10.0
 omni_attenuation = 0.6
 
-[node name="NegativeLight4" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 5, -12)
-light_energy = 16.0
-light_negative = true
-light_bake_mode = 1
-omni_range = 10.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Dark1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3, 0)
 light_color = Color(1, 0, 0, 1)
 light_energy = 16.0
 omni_range = 3.0
+
+[node name="Dark2" type="Node" parent="."]
+
+[node name="dark_2" parent="Dark2" instance=ExtResource("77_21o72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
+
+[node name="Label3D" type="Label3D" parent="Dark2"]
+transform = Transform3D(-4.371139e-08, 0, 1, -0.08715574, 0.9961947, -3.8097e-09, -0.9961947, -0.08715574, -4.3545054e-08, -47.9, 3.6, -40)
+visibility_range_begin = 7.5
+modulate = Color(0.47479695, 1.1130236e-06, 3.6098064e-07, 1)
+text = "THERE
+
+IS
+
+NO
+
+ESCAPE"
+font = ExtResource("78_qn2ds")
+font_size = 64
+outline_size = 0
+
+[node name="Hammer" parent="Dark2" instance=ExtResource("79_q0cxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.7, 1.5, -40)
 
 [editable path="XROrigin3D"]
 [editable path="XROrigin3D/LeftHandController/LeftPhysicsHand"]
 [editable path="XROrigin3D/LeftHandController/LeftPhysicsHand/Hand_Nails_low_L"]
 [editable path="XROrigin3D/RightHandController/RightPhysicsHand"]
 [editable path="XROrigin3D/RightHandController/RightPhysicsHand/Hand_Nails_low_R"]
-[editable path="dark"]
+[editable path="Dark1/dark"]
